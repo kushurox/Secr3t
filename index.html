@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Socket test</title>
+</head>
+<body>
+<h1>Sample text1</h1>
+<script>
+    var ws = new WebSocket("ws://127.0.0.1:2449/")
+    ws.onopen = function() {
+        console.log("Connection Established!")
+        ws.send('working? :D')
+    }
+
+    ws.onmessage = function(msg)
+    {
+        console.log("message received!")
+        console.log(msg)
+    }
+
+    ws.onerror = function(err){
+        console.log(err)
+    }
+</script>
+</body>
+</html>
